@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tamrin3</title>
+    <style>
+        .fc {
+            inset: 0;
+            margin: auto;
+            border: 2px solid;
+            width: 700px;
+            height: 700px;
+            padding: 15px;
+        }
+
+        h3,
+        h4 {
+            text-align: center;
+        }
+
+        hr {
+            width: 90%;
+        }
+
+        p {
+            font-family: arial;
+            font-size: large;
+        }
+
+        .num1,
+        .num2 {
+            height: 20px;
+            width: 100px;
+            margin-left: 300px;
+            float: left;
+        }
+
+        .bt,
+        .bt2 {
+            width: 60px;
+            height: 25px;
+            color: #000;
+            transition: 1s;
+            background-color: #fff;
+            font-size: large;
+        }
+
+        .bt:hover {
+            background-color: #8b8b8b;
+            color: #fff;
+            font-size: large;
+        }
+
+        .jvab,
+        .jvab2 {
+            font-family: arial;
+            font-size: medium;
+            border: 1px solid;
+            border-color: #ddd;
+            width: 200px;
+            height: 35px;
+            margin-top: 20px;
+            margin-left: 270px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fc">
+        <h3>فاکتوریل چیست؟</h3>
+        <p dir="rtl">در ریاضیات فاکتوریل یک عدد صحیح نامنفی n که به صورت !n نمایش داده می شود، حاصل ضرب تمام اعداد صحیح
+            مثبت کمتر از یا برابر با n است.</p>
+        <p dir="rtl">مثال: <br><span dir="ltr">5!=5*4*3*2*1=120</span></p>
+        <h4 dir="rtl">عددی را وارد کنید :</h4>
+        <input class="num1" type="number">
+        <button class="bt">محاسبه</button>
+        <div class="jvab"></div>
+        <script>
+            function calculateFactorial() {
+                var num = document.querySelector('.num1').value;
+                var factorial = 1;
+
+                for (var i = 1; i <= num; i++) {
+                    factorial *= i;
+                }
+
+                document.querySelector('.jvab').textContent = 'فاکتوریل عدد وارد شده: ' + factorial;
+            }
+            document.querySelector('.bt').addEventListener('click', calculateFactorial);
+        </script>
+        <hr>
+        <h3>فیبوناچی چیست؟</h3>
+        <p dir="rtl">به دنباله‌ای از اعداد می‌گویند که به‌صورت زیر تعریف می‌شود:<br>غیر از دو عدد اول، اعداد بعدی از
+            جمعِ دو عددِ قبلیِ خود به‌دست می‌آیند. اولین اعداد این سری عبارت‌اند از:<br><span dir="ltr">۰، ۱، ۱، ۲، ۳،
+                ۵، ۸، ۱۳، ۲۱، ۳۴، ۵۵، ۸۹، ۱۴۴، ۲۳۳، ۳۷۷، ۶۱۰، ۹۸۷، ۱۵۹۷، ۲۵۸۴، ۴۱۸۱، ۶۷۶۵، ۱۰۹۴۶، ۱۷۷۱۱، ۲۸۶۵۷،
+                ۴۶۳۶۸،...</span></span></p>
+        <h4 dir="rtl">عددی را وارد کنید :</h4>
+        <input class="num2" type="number">
+        <button class="bt2">محاسبه</button>
+        <div class="jvab2"></div>
+        <script>
+            function Fibo() {
+                var numf = document.querySelector('.num2').value;
+                var fibon = fibonacciRecursive(numf);
+                document.querySelector('.jvab2').textContent = 'عدد فیبوناچی برای عدد وارد شده: ' + fibon;
+            }
+
+            function fib(n) {
+                if (n <= 1) {
+                    return n;
+                } else {
+                    return fib(n - 1) + fib(n - 2);
+                }
+            }
+
+            document.querySelector('.bt2').addEventListener('click', Fibo);
+        </script>
+    </div>
+</body>
+</html>
